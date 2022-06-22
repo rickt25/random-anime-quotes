@@ -25,7 +25,7 @@ export default function Quotes({ loading, quotes, fetchQuotes, addToFavorites, s
             <span>View Favorites</span>
           </Button>
         </ButtonWrapper>
-        <FavoriteButton onClick={addToFavorites}>
+        <FavoriteButton onClick={addToFavorites} disabled={loading}>
           <img src={starIcon} />
           Add to Favorites
         </FavoriteButton>
