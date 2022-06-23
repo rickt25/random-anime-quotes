@@ -13,7 +13,7 @@ export default function Quotes({ loading, quotes, fetchQuotes, addToFavorites, s
           <>
             <Character>{quotes.character}</Character>
             <Anime>{quotes.anime}</Anime>
-            <Quote>"{quotes.quote}"</Quote>
+            <Quote>"{quotes.quote}{quotes.quote}{quotes.quote}"</Quote>
           </>
         )}
         <ButtonWrapper>

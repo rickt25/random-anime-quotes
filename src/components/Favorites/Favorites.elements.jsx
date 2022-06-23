@@ -67,4 +67,18 @@ const Button = styled.button`
   }
 `
 
-export { Title, Card, QuotesWrapper, Quotes, Author, Anime, Quote, Button }
+const DeleteButton = styled.button`
+  position: absolute;
+  top: 1.5rem;
+  right: 1rem;
+
+  &:hover img{
+    opacity: 0.8;
+  }
+  img{
+    width: 15px;
+    opacity: 0.4;
+  }
+`
+
+export { Title, Card, QuotesWrapper, Quotes, Author, Anime, Quote, Button, DeleteButton }
