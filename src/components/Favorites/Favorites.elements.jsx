@@ -68,6 +68,7 @@ const Button = styled.button`
 `
 
 const DeleteButton = styled.button`
+  background: none;
   position: absolute;
   top: 1.5rem;
   right: 1rem;
