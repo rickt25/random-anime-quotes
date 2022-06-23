@@ -32,6 +32,8 @@ const Quote = styled.h5`
   font-size: 1.1rem;
   font-weight: 500;
   color: #505050;
+  height: 140px;
+  overflow: auto;
 `
 const ButtonWrapper = styled.div`
   display: flex;

@@ -4,24 +4,6 @@ import { Quotes } from "../components";
 
 const API_URL = "https://animechan.vercel.app/api/random";
 
-const objects = [
-  {
-    character: "Kurapayu",
-    anime: "Naruto",
-    quote: "I am the strongest ninja in the world!",
-  },
-  {
-    character: "Jiraya",
-    anime: "Naruto",
-    quote: "I am the strongest pervert in the world!",
-  },
-  {
-    character: "Kucing",
-    anime: "Neko",
-    quote: "miaw",
-  },
-];
-
 export default function HomePage({ setPage }) {
   const [quotes, setQuotes] = useState({});
   const [loading, setLoading] = useState(true);

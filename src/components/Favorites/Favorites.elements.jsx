@@ -17,23 +17,6 @@ const QuotesWrapper = styled.div`
   height: 480px;
   overflow-y: scroll;
   padding: 0 1rem;
-  /* width */
-  ::-webkit-scrollbar {
-    width: 8px;
-  }
-  /* Track */
-  ::-webkit-scrollbar-track {
-    background: #eeeeee;
-  }
-  /* Handle */
-  ::-webkit-scrollbar-thumb {
-    background: #5f5f5f70; 
-    border-radius: 20px;
-  }
-  /* Handle on hover */
-  ::-webkit-scrollbar-thumb:hover {
-    background: #555; 
-  }
 `
 
 const Quotes = styled.div`
