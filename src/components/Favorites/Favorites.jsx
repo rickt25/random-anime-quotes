@@ -1,19 +1,8 @@
 import { Title, Card, Quotes, Author, Anime, QuotesWrapper, Quote, Button, DeleteButton } from './Favorites.elements';
 import deleteIcon from '../../images/delete.png';
-import { useLocalStorage } from '../../hooks/useLocalStorage';
 import React from 'react';
 
-export default function Favorites({ setPage }) {
-  const [localQuotes, setLocalQuotes] = useLocalStorage("quotes", []);
-
-  function deleteFavorite(deleteQuote){
-    let currentQuotes = localQuotes;
-    console.log(currentQuotes.filter(test => test.quote !== deleteQuote));
-    currentQuotes = currentQuotes.filter(test => test.quote !== deleteQuote);
-    console.log(currentQuotes);
-    setLocalQuotes(currentQuotes);
-  }
-
+export default function Favorites({ setPage, deleteFavorite, quotes }) {
   return (
     <>
       <Title>
@@ -21,7 +10,7 @@ export default function Favorites({ setPage }) {
       </Title>
       <Card>
         <QuotesWrapper>
-          {localQuotes.length ? localQuotes.map((quotes, index) => (
+          {quotes ? quotes.map((quotes, index) => (
             <Quotes key={index}>
               <Author>{quotes.character}</Author>
               <Anime>{quotes.anime}</Anime>

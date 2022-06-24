@@ -1,19 +1,37 @@
-import { Title, Card, Character, Anime, Quote, ButtonWrapper, Button, FavoriteButton } from './Quotes.elements';
+import {
+  Title,
+  Card,
+  Character,
+  Anime,
+  Quote,
+  ButtonWrapper,
+  Button,
+  FavoriteButton,
+} from "./Quotes.elements";
 import diceIcon from "../../images/dice.png";
 import starIcon from "../../images/star.png";
 
-export default function Quotes({ loading, quotes, fetchQuotes, addToFavorites, setPage }) {
+export default function Quotes({
+  loading,
+  quotes,
+  fetchQuotes,
+  addToFavorites,
+  setPage,
+  error,
+}) {
   return (
     <>
-      <Title>
-        Anime Quotes Generator
-      </Title>
+      <Title>Anime Quotes Generator</Title>
       <Card>
-        {loading ? <p>Loading...</p> : (
+        {error ? (
+          <p>Something went wrong !</p>
+        ) : loading ? (
+          <p>Loading...</p>
+        ) : (
           <>
             <Character>{quotes.character}</Character>
             <Anime>{quotes.anime}</Anime>
-            <Quote>"{quotes.quote}{quotes.quote}{quotes.quote}"</Quote>
+            <Quote>"{quotes.quote}"</Quote>
           </>
         )}
         <ButtonWrapper>
@@ -30,7 +48,6 @@ export default function Quotes({ loading, quotes, fetchQuotes, addToFavorites, s
           Add to Favorites
         </FavoriteButton>
       </Card>
-      
     </>
   );
 }

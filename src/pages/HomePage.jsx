@@ -7,6 +7,7 @@ const API_URL = "https://animechan.vercel.app/api/random";
 export default function HomePage({ setPage }) {
   const [quotes, setQuotes] = useState({});
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(false);
   const [localQuotes, setLocalQuotes] = useLocalStorage("quotes", []);
 
   useEffect(() => {
@@ -18,17 +19,20 @@ export default function HomePage({ setPage }) {
     try{
       const response = await fetch(API_URL);
       const quotes = await response.json();
+      setError(false);
       setQuotes(quotes);
       setLoading(false);
     }catch(error){
-      console.log(error);
+      setError(true);
     }
   }
 
   function addToFavorites() {
-    let currentQuotes = localQuotes;
-    currentQuotes.push(quotes);
-    setLocalQuotes(currentQuotes);
+    if(!localQuotes.some(quote => quote.quote === quotes.quote)){
+      let currentQuotes = localQuotes;
+      currentQuotes.push(quotes);
+      setLocalQuotes(currentQuotes);
+    }
   }
 
   return (
@@ -39,6 +43,7 @@ export default function HomePage({ setPage }) {
         fetchQuotes={fetchQuotes}
         addToFavorites={addToFavorites}
         setPage={setPage}
+        error={error}
       />
     </>
   );
